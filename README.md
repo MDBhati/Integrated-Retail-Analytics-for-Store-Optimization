@@ -1,6 +1,81 @@
-# Integrated Retail Analytics for Store Optimization
+# Integrated Retail Analytics for Store Optimization and Demand Forecasting
 
-Production-grade retail analytics pipeline: data quality gates, feature engineering, store segmentation, demand forecasting, anomaly detection, and association-rule mining.
+## Overview
+
+This project applies machine learning, statistical analysis, and data visualization techniques to optimize retail store performance, forecast demand, and generate actionable business insights.
+
+The solution analyzes historical sales data, store characteristics, promotional markdowns, and external economic indicators to identify anomalies, segment stores, forecast sales, and recommend inventory and marketing strategies.
+
+---
+
+## Business Objectives
+
+* Detect unusual sales patterns across stores and departments.
+* Forecast weekly sales to improve inventory planning.
+* Understand the impact of economic and promotional factors on sales.
+* Segment stores based on sales behavior and operational characteristics.
+* Generate data-driven recommendations for marketing and store optimization.
+
+---
+
+## Key Features
+
+### Sales Anomaly Detection
+
+* Identified abnormal sales spikes and drops.
+* Analyzed the effects of holidays, markdowns, and economic indicators.
+* Improved data quality for downstream forecasting models.
+
+### Time Series Analysis
+
+* Explored seasonal trends and holiday impacts.
+* Evaluated store and department performance over time.
+
+### Data Preprocessing & Feature Engineering
+
+* Handled missing values in markdown features.
+* Created predictive features using store, sales, and economic data.
+
+### Store Segmentation
+
+* Grouped stores with similar sales and operational characteristics.
+* Evaluated segmentation quality using clustering metrics.
+
+### Market Basket Analysis
+
+* Inferred department-level product associations.
+* Generated cross-selling opportunities and promotional insights.
+
+### Demand Forecasting
+
+* Built predictive models for weekly sales forecasting.
+* Incorporated sales history, markdowns, holidays, CPI, fuel prices, and unemployment rates.
+
+### Business Strategy Recommendations
+
+* Inventory optimization strategies.
+* Segment-based marketing recommendations.
+* Store performance improvement initiatives.
+
+---
+
+## Project Workflow
+
+```text
+Data Collection
+      ↓
+Data Cleaning & Feature Engineering
+      ↓
+Anomaly Detection
+      ↓
+Store Segmentation
+      ↓
+Market Basket Analysis
+      ↓
+Demand Forecasting
+      ↓
+Business Insights & Recommendations
+```
 
 ## Quick start
 
@@ -52,7 +127,6 @@ docs/                       # Output schemas, runbooks
 artifacts/                  # Models, manifests, evaluation reports (generated)
 data/processed/             # Curated tables (generated)
 data/outputs/               # Forecasts and batch scores (generated)
-Project_3.ipynb             # Original research notebook (reference)
 ```
 
 ## Configuration
