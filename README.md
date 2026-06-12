@@ -115,18 +115,31 @@ make pipeline
 ## Project structure
 
 ```
-config/config.yaml          # Pipeline parameters (single source of truth)
-src/retail_analytics/       # Production Python package
-  data/                     # Ingestion + quality gates
-  features/                 # Feature engineering
-  models/                   # Segmentation, forecasting, SARIMA, association rules
-  pipeline/                 # Orchestration
-  cli.py                    # Entry point
-tests/                      # Unit + integration tests
-docs/                       # Output schemas, runbooks
-artifacts/                  # Models, manifests, evaluation reports (generated)
-data/processed/             # Curated tables (generated)
-data/outputs/               # Forecasts and batch scores (generated)
+```text id="y1o04w"
+Integrated-Retail-Analytics/
+│
+├── config/
+│   └── config.yaml                 # Pipeline parameters
+│
+├── src/
+│   └── retail_analytics/
+│       ├── data/                   # Ingestion + quality gates
+│       ├── features/               # Feature engineering
+│       ├── models/                 # Segmentation, forecasting, SARIMA, association rules
+│       ├── pipeline/               # Orchestration
+│       └── cli.py                  # Entry point
+│
+├── tests/                          # Unit + integration tests
+│
+├── docs/                           # Output schemas, runbooks
+│
+├── artifacts/                      # Models, manifests, evaluation reports (generated)
+│
+└── data/
+    ├── raw/                        # raw data (csv files) 
+    └── outputs/                    # Forecasts and batch scores (generated)
+```
+
 ```
 
 ## Configuration
@@ -172,12 +185,6 @@ CI runs on push/PR via `.github/workflows/ci.yml`.
 4. **Demand forecasting** — XGBoost with time-based holdout (pre-2012 train, 2012 test)
 5. **SARIMA baseline** — auto-ARIMA seasonal benchmark on aggregate sales
 6. **Association rules** — department co-occurrence via Apriori (mlxtend)
-
-See `Project description.md` for the full production specification and phased delivery roadmap.
-
-## Research notebook
-
-`Project_3.ipynb` contains the original Colab exploration. Production logic lives in `src/retail_analytics/` and should be treated as the source of truth for scheduled jobs.
 
 ---
 
