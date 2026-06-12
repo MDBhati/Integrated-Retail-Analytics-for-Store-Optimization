@@ -115,7 +115,6 @@ make pipeline
 ## Project structure
 
 ```
-```text
 Integrated-Retail-Analytics/
 │
 ├── config/
