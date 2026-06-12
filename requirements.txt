@@ -1,0 +1,14 @@
+# Generated from pyproject.toml — prefer: pip install -e ".[dev]"
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.3
+xgboost>=2.0
+statsmodels>=0.14
+pmdarima>=2.0
+mlxtend>=0.23
+pyyaml>=6.0
+joblib>=1.3
+click>=8.1
+pydantic>=2.0
+pydantic-settings>=2.0
+pyarrow>=14.0

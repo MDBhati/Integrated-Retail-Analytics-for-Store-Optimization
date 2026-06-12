@@ -1,0 +1,89 @@
+# Retail Analytics Pipeline Configuration
+# Override paths via environment variables (see Settings in retail_analytics.config)
+
+data:
+  sales_file: "sales data-set.csv"
+  stores_file: "stores data-set.csv"
+  features_file: "Features data set.csv"
+  date_format: "%d/%m/%Y"
+  test_split_date: "2012-01-01"
+
+quality:
+  min_stores: 40
+  min_rows: 400000
+  max_negative_sales_pct: 0.01
+  required_sales_columns: ["Store", "Dept", "Date", "Weekly_Sales", "IsHoliday"]
+  required_stores_columns: ["Store", "Type", "Size"]
+  required_features_columns:
+    - Store
+    - Date
+    - Temperature
+    - Fuel_Price
+    - MarkDown1
+    - MarkDown2
+    - MarkDown3
+    - MarkDown4
+    - MarkDown5
+    - CPI
+    - Unemployment
+    - IsHoliday
+
+features:
+  markdown_columns: ["MarkDown1", "MarkDown2", "MarkDown3", "MarkDown4", "MarkDown5"]
+  temp_bins:
+    freezing: 32
+    cold: 52
+    moderate: 78
+
+segmentation:
+  n_clusters: 4
+  pca_components: 2
+  random_state: 42
+  elbow_max_k: 10
+
+forecasting:
+  model_type: "xgboost"
+  xgboost:
+    n_estimators: 1000
+    learning_rate: 0.05
+    max_depth: 7
+    subsample: 0.8
+    colsample_bytree: 0.8
+    early_stopping_rounds: 50
+    random_state: 42
+  feature_columns:
+    - Store
+    - Dept
+    - IsHoliday
+    - Size
+    - Type_Encoded
+    - CPI
+    - Unemployment
+    - Temperature
+    - Fuel_Price
+    - Month
+    - Week
+    - Sales_Lag_1
+    - Cluster
+    - MarkDown1
+    - MarkDown2
+    - MarkDown3
+    - MarkDown4
+    - MarkDown5
+
+anomaly:
+  zscore_threshold: 3.0
+
+association:
+  min_support: 0.011
+  min_confidence: 0.8
+  min_lift: 3.0
+  min_length: 2
+
+sarima:
+  seasonal_period: 52
+  stepwise: true
+
+artifacts:
+  champion_model_name: "xgboost_champion"
+  segmentation_name: "store_segments"
